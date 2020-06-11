@@ -57,7 +57,6 @@
   background: rgba(255, 255, 255, 1) !important;
 }
 
-
 .urlbar-go-button {
   display: none !important;
 }
@@ -97,12 +96,6 @@
   border: none !important;
 }
 
-/* 
-* {
-  font-family: -apple-system, BlinkMacSystemFont !important;
-}
- */
-
 /* make back button same size as other toolbar icons */
 #back-button > .toolbarbutton-icon {
   width: calc(2 * var(--toolbarbutton-inner-padding) + 16px) !important;
@@ -111,8 +104,32 @@
   padding: var(--toolbarbutton-inner-padding) !important;
 }
 
+/* make opacity the same as forward button */
+#back-button[disabled="true"] {
+  fill-opacity: 0.4 !important;
+}
+
+/* readjust margins for smaller size */
 #back-button {
   margin-left: 4px !important;
+}
+
+/* standardize padding on tab overflow buttons */
+#scrollbutton-up {
+  border-radius: var(--toolbarbutton-border-radius) !important;
+  margin-right: 4px !important;
+  margin-bottom: 4px !important;
+}
+
+#scrollbutton-down {
+  border-radius: var(--toolbarbutton-border-radius) !important;
+  margin-right: 4px !important;
+  margin-bottom: 4px !important;
+}
+
+/* realign new tab, all tabs button */
+#new-tab-button, #alltabs-button {
+  margin-bottom: 4px !important;
 }
 
 /* remove tab seperators */
