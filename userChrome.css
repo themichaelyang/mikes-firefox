@@ -93,7 +93,6 @@
 #back-button:not(:hover),#back-button:not(:hover) > .toolbarbutton-icon {
   background: transparent !important;
   border: none !important; 
-  border-radius: 
   /*box-shadow:0px 0px 8px -6px #000000 !important;*/
 }
 
@@ -107,6 +106,12 @@
   height: calc(2 * var(--toolbarbutton-inner-padding) + 16px) !important;
   border-radius: var(--toolbarbutton-border-radius) !important;
   padding: var(--toolbarbutton-inner-padding) !important;
+}
+
+/* make hover effect same as other toolbar icons */
+#back-button:not([disabled]):not([open]):hover > .toolbarbutton-icon {
+  box-shadow: none !important;
+  background-color: var(--toolbarbutton-hover-background) !important;
 }
 
 /* make opacity the same as forward button */
