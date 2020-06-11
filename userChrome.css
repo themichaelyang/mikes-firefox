@@ -1,8 +1,13 @@
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 /* Adapted from: https://www.reddit.com/r/FirefoxCSS/comments/bm77hx/modern_firefox/ */
 
-#nav-bar {
-  border-bottom: 0.5px solid var(--tabs-border-color);
+/* #nav-bar { */
+/*   border-bottom: 0.5px solid var(--tabs-border-color); */
+/* } */
+
+#navigator-toolbox::after {
+  height: 2px !important;
+   -moz-appearance: none !important; 
 }
 
 #navigator-toolbox {
