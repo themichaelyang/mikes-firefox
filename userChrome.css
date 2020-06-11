@@ -1,11 +1,6 @@
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 /* Adapted from: https://www.reddit.com/r/FirefoxCSS/comments/bm77hx/modern_firefox/ */
 
-/* the little line under the title bar separating it from content */
-#navigator-toolbox::after {
-  height: 0px !important;
-}
-
 #nav-bar {
   border-bottom: 0.5px solid var(--tabs-border-color);
 }
@@ -62,9 +57,6 @@
   background: rgba(255, 255, 255, 1) !important;
 }
 
-#navigator-toolbox::after {
-/*   border-bottom: 0px !important; */
-}
 
 .urlbar-go-button {
   display: none !important;
@@ -93,23 +85,40 @@
   background-color: white !important;
 }
 
+
 #back-button:not(:hover),#back-button:not(:hover) > .toolbarbutton-icon {
   background: transparent !important;
   border: none !important; 
+  border-radius: 
   /*box-shadow:0px 0px 8px -6px #000000 !important;*/
 }
 
 #back-button:hover,#back-button:hover > .toolbarbutton-icon {
   border: none !important;
-  border-radius: 2px !importants
+}
+
+/* 
+* {
+  font-family: -apple-system, BlinkMacSystemFont !important;
+}
+ */
+
+/* make back button same size as other toolbar icons */
+#back-button > .toolbarbutton-icon {
+  width: calc(2 * var(--toolbarbutton-inner-padding) + 16px) !important;
+  height: calc(2 * var(--toolbarbutton-inner-padding) + 16px) !important;
+  border-radius: var(--toolbarbutton-border-radius) !important;
+  padding: var(--toolbarbutton-inner-padding) !important;
+}
+
+#back-button {
+  margin-left: 4px !important;
 }
 
 /* remove tab seperators */
 .tab-background {
   margin-inline-start: -0.5px !important;
   margin-inline-end: -0.5px !important;
-/*   margin-inline-start: -1px !important; */
-/*   margin-inline-end: -1px !important; */
   border: 0 !important;
   border-image-width: 0 !important;
 }
@@ -125,7 +134,6 @@
 /* Separator before and after tabs in titlebar */
 .titlebar-spacer[type="pre-tabs"], .titlebar-spacer[type="post-tabs"] {
   border-inline-end: none !important;
-/*   border-inline-end: 0.5px solid var(--tab-border-color) !important; */
   width: 12px !important;
 }
 
@@ -133,3 +141,4 @@
 .tabbrowser-tab::after, .tabbrowser-tab::before {
   border: 0.5px solid var(--tabs-border-color) !important;
 }
+
