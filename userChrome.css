@@ -1,0 +1,135 @@
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+/* Adapted from: https://www.reddit.com/r/FirefoxCSS/comments/bm77hx/modern_firefox/ */
+
+/* the little line under the title bar separating it from content */
+#navigator-toolbox::after {
+  height: 0px !important;
+}
+
+#nav-bar {
+  border-bottom: 0.5px solid var(--tabs-border-color);
+}
+
+#navigator-toolbox {
+  --tabs-border-color: rgba(0, 0, 0, 0) !important;
+  /* for mac transparent effect */
+  -moz-appearance: -moz-mac-vibrant-titlebar-light !important;
+}
+
+.tab-background {
+  transition-property: all !important;
+  transition-duration: 150ms !important;
+  border-radius: 10px 10px 0px 0px !important;
+  /*   default value to give transition duration */
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.tabbrowser-tab {
+  margin: 0 2.5px !important;
+}
+
+.tabbrowser-tab[selected="true"] {
+  margin: 0 5px !important;
+}
+
+.tabbrowser-tab[selected="true"]::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  left: -10px;
+  height: 10px;
+  width: 10px;
+  background-image: url('data:image/svg+xml;utf8,<svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.109247 10.9078C5.63209 10.9078 10.1092 6.43068 10.1092 0.907827V10.9078H0.109247Z" fill="white"/></svg>');
+  background-size: 10px 10px;
+  background-repeat: no-repeat;
+}
+
+.tabbrowser-tab[selected="true"] .tab-background::before {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -1px;
+  right: -10px;
+  height: 10px;
+  width: 10px;
+  background-image: url('data:image/svg+xml;utf8,<svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.1092 10.9078C4.5864 10.9078 0.109245 6.43068 0.109245 0.907827V10.9078H10.1092Z" fill="white"/></svg>');
+  background-size: 10px 10px;
+  background-repeat: no-repeat;
+}
+
+#urlbar-background {
+  background: rgba(255, 255, 255, 1) !important;
+}
+
+#navigator-toolbox::after {
+/*   border-bottom: 0px !important; */
+}
+
+.urlbar-go-button {
+  display: none !important;
+}
+
+#TabsToolbar-customization-target {
+  margin-top: 4px;
+}
+
+#nav-bar {
+  height: 42px !important;
+  padding: 0 2px !important;
+}
+
+#urlbar {
+  min-height: 30px !important;
+  border-radius: 2em !important;
+}
+
+#sidebar-box {
+  -moz-appearance: none !important;
+}
+
+#bookmarks-view, #historyTree {
+  -moz-appearance: none !important;
+  background-color: white !important;
+}
+
+#back-button:not(:hover),#back-button:not(:hover) > .toolbarbutton-icon {
+  background: transparent !important;
+  border: none !important; 
+  /*box-shadow:0px 0px 8px -6px #000000 !important;*/
+}
+
+#back-button:hover,#back-button:hover > .toolbarbutton-icon {
+  border: none !important;
+  border-radius: 2px !importants
+}
+
+/* remove tab seperators */
+.tab-background {
+  margin-inline-start: -0.5px !important;
+  margin-inline-end: -0.5px !important;
+/*   margin-inline-start: -1px !important; */
+/*   margin-inline-end: -1px !important; */
+  border: 0 !important;
+  border-image-width: 0 !important;
+}
+
+.tabbrowser-tab[fadein] {
+  max-width: 242px !important;
+}
+
+.tab-line {
+  visibility: hidden !important;
+}
+
+/* Separator before and after tabs in titlebar */
+.titlebar-spacer[type="pre-tabs"], .titlebar-spacer[type="post-tabs"] {
+  border-inline-end: none !important;
+/*   border-inline-end: 0.5px solid var(--tab-border-color) !important; */
+  width: 12px !important;
+}
+
+/* Separator after tabs and new tab button */
+.tabbrowser-tab::after, .tabbrowser-tab::before {
+  border: 0.5px solid var(--tabs-border-color) !important;
+}
