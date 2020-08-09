@@ -84,11 +84,12 @@
   -moz-appearance: none !important;
 }
 
+/* change background of bookmarks and history */
+/* tabs seems to be WebExtension based? have to modify: chrome://browser/skin/syncedtabs/sidebar.css */
 #bookmarks-view, #historyTree {
   -moz-appearance: none !important;
   background-color: white !important;
 }
-
 
 #back-button:not(:hover),#back-button:not(:hover) > .toolbarbutton-icon {
   background: transparent !important;
@@ -109,6 +110,12 @@
 }
 
 /* make hover effect same as other toolbar icons */
+#back-button:not([disabled]):not([open]):hover > .toolbarbutton-icon {
+  box-shadow: none !important;
+  background-color: var(--toolbarbutton-hover-background) !important;
+}
+
+/* make click effect same as other toolbar icons */
 #back-button:not([disabled]):not([open]):hover > .toolbarbutton-icon {
   box-shadow: none !important;
   background-color: var(--toolbarbutton-hover-background) !important;
