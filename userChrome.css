@@ -5,6 +5,12 @@
 /*   border-bottom: 0.5px solid var(--tabs-border-color); */
 /* } */
 
+/* Not sure I understand this syntax but detailed in: */
+/* https://bugzilla.mozilla.org/show_bug.cgi?id=1594771 */
+*|*:root {
+  background: transparent !important; 
+}
+
 #navigator-toolbox::after {
   height: 2px !important;
    -moz-appearance: none !important; 
@@ -13,7 +19,13 @@
 #navigator-toolbox {
   --tabs-border-color: rgba(0, 0, 0, 0) !important;
   /* for mac transparent effect */
-  -moz-appearance: -moz-mac-vibrant-titlebar-light !important;
+  -moz-appearance: -moz-mac-vibrancy-light !important;
+  border-bottom: 0px !important;
+  background-color: transparent !important;
+}
+
+#titlebar {
+/*   -moz-appearance: -moz-mac-vibrancy-light !important; */
 }
 
 .tab-background {
