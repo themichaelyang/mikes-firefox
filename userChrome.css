@@ -36,15 +36,15 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
-.tabbrowser-tab {
+.tabbrowser-tab:not([pinned="true"]) {
   margin: 0 2.5px !important;
 }
 
-.tabbrowser-tab[selected="true"] {
+.tabbrowser-tab[selected="true"]:not([pinned="true"]) {
   margin: 0 5px !important;
 }
 
-.tabbrowser-tab[selected="true"]::after {
+.tabbrowser-tab[selected="true"]:not([pinned="true"])::after {
   content: '';
   display: block;
   position: absolute;
@@ -57,7 +57,7 @@
   background-repeat: no-repeat;
 }
 
-.tabbrowser-tab[selected="true"] .tab-background::before {
+.tabbrowser-tab[selected="true"]:not([pinned="true"]) .tab-background::before {
   content: '';
   display: block;
   position: absolute;
