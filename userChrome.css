@@ -28,6 +28,7 @@
   -moz-appearance: -moz-mac-vibrancy-light !important;
 }
  */
+
 .tab-background {
   transition-property: all !important;
   transition-duration: 150ms !important;
@@ -36,13 +37,10 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
-tab:first-child {
-  margin-left: 6px !important;
-}
-
-.tabbrowser-tab[selected="true"]::after {
+/* keep curved edges as part of tab-stack, so tab sizing calculation won't be affected */
+.tabbrowser-tab[selected="true"] .tab-stack::after {
   content: '';
-  display: block; 
+  display: block;
   position: absolute;
   right: -9.6px;
   bottom: -1px;
@@ -66,6 +64,36 @@ tab[selected="true"] .tab-stack::before {
   background-size: 10px 10px;
   background-repeat: no-repeat;
   z-index: 3;
+}
+
+tab:not([pinned=true]) {
+  margin: 0 5px !important;
+}
+
+/* overflow shadows on overflow tab scroller */
+spacer[part=overflow-start-indicator], spacer[part=overflow-end-indicator] {
+  background-image: none !important;
+}
+/* remove tab seperators */
+.tab-background {
+  margin-inline-start: -0.5px !important;
+  margin-inline-end: -0.5px !important;
+  border: 0 !important;
+  border-image-width: 0 !important;
+}
+
+/* hide line above tabs  */
+.tab-line {
+  visibility: hidden !important;
+}
+
+/* Hide separator before and after tabs in titlebar */
+.titlebar-spacer[type="pre-tabs"], .titlebar-spacer[type="post-tabs"] {
+  border-inline-end: none !important;
+}
+
+.titlebar-spacer[type="pre-tabs"] {
+  width: 8px !important;
 }
 
 #urlbar-background {
@@ -151,28 +179,6 @@ tab[selected="true"] .tab-stack::before {
 /* realign new tab, all tabs button */
 #new-tab-button, #alltabs-button {
   margin-bottom: 4px !important;
-}
-
-/* overflow shadows on overflow tab scroller */
-spacer[part=overflow-start-indicator], spacer[part=overflow-end-indicator] {
-  background-image: none !important;
-}
-/* remove tab seperators */
-.tab-background {
-  margin-inline-start: -0.5px !important;
-  margin-inline-end: -0.5px !important;
-  border: 0 !important;
-  border-image-width: 0 !important;
-}
-
-.tab-line {
-  visibility: hidden !important;
-}
-
-/* Separator before and after tabs in titlebar */
-.titlebar-spacer[type="pre-tabs"], .titlebar-spacer[type="post-tabs"] {
-  border-inline-end: none !important;
-  width: 12px !important;
 }
 
 /* Separator after tabs and new tab button */
