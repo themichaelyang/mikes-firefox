@@ -1,9 +1,9 @@
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 /* Adapted from: https://www.reddit.com/r/FirefoxCSS/comments/bm77hx/modern_firefox/ */
 
-/* #nav-bar { */
-/*   border-bottom: 0.5px solid var(--tabs-border-color); */
-/* } */
+/* #nav-bar {
+  border-bottom: 0.5px solid var(--tabs-border-color);
+} */
 
 /* Not sure I understand this syntax but detailed in: */
 /* https://bugzilla.mozilla.org/show_bug.cgi?id=1594771 */
@@ -24,10 +24,10 @@
   background-color: transparent !important;
 }
 
-#titlebar {
-/*   -moz-appearance: -moz-mac-vibrancy-light !important; */
+/* #titlebar {
+  -moz-appearance: -moz-mac-vibrancy-light !important;
 }
-
+ */
 .tab-background {
   transition-property: all !important;
   transition-duration: 150ms !important;
@@ -36,38 +36,36 @@
   background-color: rgba(0, 0, 0, 0);
 }
 
-.tabbrowser-tab:not([pinned="true"]) {
-  margin: 0 2.5px !important;
+tab:first-child {
+  margin-left: 6px !important;
 }
 
-.tabbrowser-tab[selected="true"]:not([pinned="true"]) {
-  margin: 0 5px !important;
-}
-
-.tabbrowser-tab[selected="true"]:not([pinned="true"])::after {
+.tabbrowser-tab[selected="true"]::after {
   content: '';
-  display: block;
+  display: block; 
   position: absolute;
+  right: -9.6px;
   bottom: -1px;
-  left: -10px;
-  height: 10px;
-  width: 10px;
-  background-image: url('data:image/svg+xml;utf8,<svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.109247 10.9078C5.63209 10.9078 10.1092 6.43068 10.1092 0.907827V10.9078H0.109247Z" fill="white"/></svg>');
-  background-size: 10px 10px;
-  background-repeat: no-repeat;
-}
-
-.tabbrowser-tab[selected="true"]:not([pinned="true"]) .tab-background::before {
-  content: '';
-  display: block;
-  position: absolute;
-  bottom: -1px;
-  right: -10px;
   height: 10px;
   width: 10px;
   background-image: url('data:image/svg+xml;utf8,<svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.1092 10.9078C4.5864 10.9078 0.109245 6.43068 0.109245 0.907827V10.9078H10.1092Z" fill="white"/></svg>');
   background-size: 10px 10px;
   background-repeat: no-repeat;
+  z-index: 3;
+}
+
+tab[selected="true"] .tab-stack::before {
+  content: '';
+  display: block; 
+  position: absolute;
+  left: -9.6px;
+  bottom: -1px;
+  height: 10px;
+  width: 10px;
+  background-image: url('data:image/svg+xml;utf8,<svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.109247 10.9078C5.63209 10.9078 10.1092 6.43068 10.1092 0.907827V10.9078H0.109247Z" fill="white"/></svg>');
+  background-size: 10px 10px;
+  background-repeat: no-repeat;
+  z-index: 3;
 }
 
 #urlbar-background {
@@ -165,10 +163,6 @@ spacer[part=overflow-start-indicator], spacer[part=overflow-end-indicator] {
   margin-inline-end: -0.5px !important;
   border: 0 !important;
   border-image-width: 0 !important;
-}
-
-.tabbrowser-tab[fadein] {
-  max-width: 242px !important;
 }
 
 .tab-line {
