@@ -8,6 +8,7 @@
 /* Not sure I understand this syntax but detailed in: */
 /* https://bugzilla.mozilla.org/show_bug.cgi?id=1594771 */
 *|*:root {
+  --toolbar-bgcolor: white !important; /* toolbar bg color */
   background: transparent !important; 
 }
 
@@ -16,12 +17,15 @@
    -moz-appearance: none !important; 
 }
 
+
 #navigator-toolbox {
   --tabs-border-color: rgba(0, 0, 0, 0) !important;
+  /* Turned out to be Firefox Color removing the mac transparency effect */
+  /* so this is no longer needed  */
   /* for mac transparent effect */
-  -moz-appearance: -moz-mac-vibrancy-light !important;
-  border-bottom: 0px !important;
-  background-color: transparent !important;
+/*   -moz-appearance: -moz-mac-vibrancy-light !important; */
+/*   border-bottom: 0px !important; */
+/*   background-color: transparent !important; */
 }
 
 /* #titlebar {
@@ -30,40 +34,54 @@
  */
 
 .tab-background {
-  transition-property: all !important;
-  transition-duration: 150ms !important;
+  background-color: red;
   border-radius: 10px 10px 0px 0px !important;
   /*   default value to give transition duration */
-  background-color: rgba(0, 0, 0, 0);
+/*   background-color: rgba(0, 0, 0, 0) !important; */
+}
+
+tab {
+  --edges-opacity: 0.0;
+}
+
+tab[selected="true"] {
+  --edges-opacity: 1.0;
+}
+
+tab[selected="true"] .tabbrowser-tab {
+  background-color: yellow !important;
 }
 
 /* keep curved edges as part of tab-stack, so tab sizing calculation won't be affected */
-.tabbrowser-tab[selected="true"] .tab-stack::after {
+.tabbrowser-tab .tab-stack::after {
   content: '';
   display: block;
   position: absolute;
-  right: -9.6px;
-  bottom: -1px;
+  right: -9.5px;
+  bottom: -0.8px;
   height: 10px;
   width: 10px;
+  background-color: inherit;
   background-image: url('data:image/svg+xml;utf8,<svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.1092 10.9078C4.5864 10.9078 0.109245 6.43068 0.109245 0.907827V10.9078H10.1092Z" fill="white"/></svg>');
   background-size: 10px 10px;
   background-repeat: no-repeat;
   z-index: 3;
+  opacity: var(--edges-opacity) !important;
 }
 
-tab[selected="true"] .tab-stack::before {
+tab .tab-stack::before {
   content: '';
   display: block; 
   position: absolute;
-  left: -9.6px;
-  bottom: -1px;
+  left: -9.5px;
+  bottom: -0.8px;
   height: 10px;
   width: 10px;
   background-image: url('data:image/svg+xml;utf8,<svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.109247 10.9078C5.63209 10.9078 10.1092 6.43068 10.1092 0.907827V10.9078H0.109247Z" fill="white"/></svg>');
   background-size: 10px 10px;
   background-repeat: no-repeat;
   z-index: 3;
+  opacity: var(--edges-opacity) !important;
 }
 
 /* Give space for curved edge for first tab in tab stack */
@@ -100,9 +118,7 @@ spacer[part=overflow-start-indicator], spacer[part=overflow-end-indicator] {
 }
 
 /* hide line above tabs  */
-.tab-line {
-  visibility: hidden !important;
-}
+.tab-line { visibility: hidden !important; }
 
 /* Reduce unnecessary spacing before/after tabs */
 .titlebar-spacer[type="pre-tabs"] { max-width: 12px !important; }
@@ -112,10 +128,6 @@ spacer[part=overflow-start-indicator], spacer[part=overflow-end-indicator] {
 .titlebar-spacer[type="pre-tabs"], .titlebar-spacer[type="post-tabs"] {
   border-inline-end: none !important;
 }
-
-/* .titlebar-spacer[type="pre-tabs"] {
-  width: 8px !important;
-} */
 
 #urlbar-background {
   background: rgba(255, 255, 255, 1) !important;
