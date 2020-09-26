@@ -66,14 +66,31 @@ tab[selected="true"] .tab-stack::before {
   z-index: 3;
 }
 
-tab:not([pinned=true]) {
-  margin: 0 5px !important;
+/* Give space for curved edge for first tab in tab stack */
+/* tab:first-child .tab-stack {
+  margin-left: 5px !important; 
+}
+ */
+/* tab:first-child:not([pinned=true]) {
+} */
+
+/* Prevent scroll left/right buttons from being to close to curved edges of tabs */
+/* (seems like width of tab scroll area can't be changed with css */
+#scrollbutton-up, #scrollbutton-down {
+  padding: 0px !important;
+}
+
+/* And for first tab in tab scrollbox */
+/* tab:not([pinned=true]) .tab-stack { */
+tab .tab-stack {
+  margin-left: 5px !important;
 }
 
 /* overflow shadows on overflow tab scroller */
 spacer[part=overflow-start-indicator], spacer[part=overflow-end-indicator] {
   background-image: none !important;
 }
+
 /* remove tab seperators */
 .tab-background {
   margin-inline-start: -0.5px !important;
@@ -87,14 +104,18 @@ spacer[part=overflow-start-indicator], spacer[part=overflow-end-indicator] {
   visibility: hidden !important;
 }
 
+/* Reduce unnecessary spacing before/after tabs */
+.titlebar-spacer[type="pre-tabs"] { max-width: 12px !important; }
+.titlebar-spacer[type="post-tabs"] { display: none; }
+
 /* Hide separator before and after tabs in titlebar */
 .titlebar-spacer[type="pre-tabs"], .titlebar-spacer[type="post-tabs"] {
   border-inline-end: none !important;
 }
 
-.titlebar-spacer[type="pre-tabs"] {
+/* .titlebar-spacer[type="pre-tabs"] {
   width: 8px !important;
-}
+} */
 
 #urlbar-background {
   background: rgba(255, 255, 255, 1) !important;
