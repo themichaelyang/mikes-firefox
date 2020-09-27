@@ -9,6 +9,7 @@
 /*   --toolbar-field-focus-border-color: Highlight; /* this is the default, and it means use the system highlight color */ */
   --lwt-toolbar-field-border-color: var(--lwt-accent-color) !important;
   --toolbar-bgcolor: white !important; /* toolbar bg color */
+  background: transparent !important; 
 }
 
 #urlbar-background {
@@ -22,10 +23,13 @@
   height: 2px !important;
   -moz-appearance: none !important; 
 }
-#navigator-toolbox { border-bottom: none !important; }
 
-#navigator-toolbox {
+#navigator-toolbox { 
+  /* so, the default light theme doesn't include the mac os frosted glass effected... */
+  -moz-appearance: -moz-mac-vibrancy-light !important; 
+  border-bottom: none !important; 
   --tabs-border-color: rgba(0, 0, 0, 0) !important;
+  background-color: transparent !important;
 }
 
 .tab-background {
