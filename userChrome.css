@@ -1,15 +1,11 @@
 @namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
 /* Adapted from: https://www.reddit.com/r/FirefoxCSS/comments/bm77hx/modern_firefox/ */
 
-/* #nav-bar {
-  border-bottom: 0.5px solid var(--tabs-border-color);
-} */
 
 /* Not sure I understand this syntax but detailed in: */
 /* https://bugzilla.mozilla.org/show_bug.cgi?id=1594771 */
 *|*:root {
   --toolbar-bgcolor: white !important; /* toolbar bg color */
-  background: transparent !important; 
 }
 
 #navigator-toolbox::after {
@@ -17,27 +13,12 @@
    -moz-appearance: none !important; 
 }
 
-
 #navigator-toolbox {
   --tabs-border-color: rgba(0, 0, 0, 0) !important;
-  /* Turned out to be Firefox Color removing the mac transparency effect */
-  /* so this is no longer needed  */
-  /* for mac transparent effect */
-/*   -moz-appearance: -moz-mac-vibrancy-light !important; */
-/*   border-bottom: 0px !important; */
-/*   background-color: transparent !important; */
 }
-
-/* #titlebar {
-  -moz-appearance: -moz-mac-vibrancy-light !important;
-}
- */
 
 .tab-background {
-  background-color: red;
   border-radius: 10px 10px 0px 0px !important;
-  /*   default value to give transition duration */
-/*   background-color: rgba(0, 0, 0, 0) !important; */
 }
 
 tab {
@@ -46,10 +27,6 @@ tab {
 
 tab[selected="true"] {
   --edges-opacity: 1.0;
-}
-
-tab[selected="true"] .tabbrowser-tab {
-  background-color: yellow !important;
 }
 
 /* keep curved edges as part of tab-stack, so tab sizing calculation won't be affected */
