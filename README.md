@@ -23,9 +23,11 @@ all under 200 lines of code, with comments!
 5. find "Profile Folder" in the table and click "Show in Finder"
 6. make a `chrome` folder in your profile folder if it doesn't already exist
 7. download (or `git clone`) this repo and put `userChrome.css` into `chrome/`
-8. restart firefox
-9. set your theme, under "Customize" in the three lines menu (≡), to either "Default" for a dark theme, or to "Light" for the light theme (recommended)
-10. enjoy `:~)`
+8. enter `about:config` in the address bar, and find `userprof`
+9. change `toolkit.legacyUserProfileCustomizations.stylesheets` from `false` to `true`
+10. restart firefox
+11. set your theme, under "Customize" in the three lines menu (≡), to either "Default" for a dark theme, or to "Light" for the light theme (recommended)
+12. enjoy `:~)`
 
 you could also `git clone` and rename the repo to `chrome/` if you'd like to pull updates and bugfixes periodically
 
