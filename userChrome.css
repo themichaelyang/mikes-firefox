@@ -5,13 +5,24 @@
 /* Not sure I understand this syntax but detailed in: */
 /* https://bugzilla.mozilla.org/show_bug.cgi?id=1594771 */
 *|*:root {
+  /* url bar border color */
+/*   --toolbar-field-focus-border-color: Highlight; /* this is the default, and it means use the system highlight color */ */
+  --lwt-toolbar-field-border-color: var(--lwt-accent-color) !important;
   --toolbar-bgcolor: white !important; /* toolbar bg color */
 }
 
+#urlbar-background {
+/* #urlbar[focused="true"] > #urlbar-background { */
+/*  usually uses --toolbar-field-focus-border-color  */
+  border: 1px solid #ddd !important;
+}
+
+/* border below toolbox */
 #navigator-toolbox::after {
   height: 2px !important;
-   -moz-appearance: none !important; 
+  -moz-appearance: none !important; 
 }
+#navigator-toolbox { border-bottom: none !important; }
 
 #navigator-toolbox {
   --tabs-border-color: rgba(0, 0, 0, 0) !important;
@@ -61,14 +72,6 @@ tab .tab-stack::before {
   opacity: var(--edges-opacity) !important;
 }
 
-/* Give space for curved edge for first tab in tab stack */
-/* tab:first-child .tab-stack {
-  margin-left: 5px !important; 
-}
- */
-/* tab:first-child:not([pinned=true]) {
-} */
-
 /* Prevent scroll left/right buttons from being to close to curved edges of tabs */
 /* (seems like width of tab scroll area can't be changed with css */
 #scrollbutton-up, #scrollbutton-down {
@@ -76,7 +79,6 @@ tab .tab-stack::before {
 }
 
 /* And for first tab in tab scrollbox */
-/* tab:not([pinned=true]) .tab-stack { */
 tab .tab-stack {
   margin-left: 5px !important;
 }
@@ -110,13 +112,8 @@ spacer[part=overflow-start-indicator], spacer[part=overflow-end-indicator] {
   background: rgba(255, 255, 255, 1) !important;
 }
 
-.urlbar-go-button {
-  display: none !important;
-}
-
-#TabsToolbar-customization-target {
-  margin-top: 4px;
-}
+/* set margin top of tabbar */
+#TabsToolbar-customization-target { margin-top: 4px; }
 
 #nav-bar {
   height: 42px !important;
@@ -126,10 +123,6 @@ spacer[part=overflow-start-indicator], spacer[part=overflow-end-indicator] {
 #urlbar {
   min-height: 30px !important;
   border-radius: 2em !important;
-}
-
-#sidebar-box {
-  -moz-appearance: none !important;
 }
 
 /* change background of bookmarks and history */
@@ -142,7 +135,6 @@ spacer[part=overflow-start-indicator], spacer[part=overflow-end-indicator] {
 #back-button:not(:hover),#back-button:not(:hover) > .toolbarbutton-icon {
   background: transparent !important;
   border: none !important; 
-  /*box-shadow:0px 0px 8px -6px #000000 !important;*/
 }
 
 #back-button:hover,#back-button:hover > .toolbarbutton-icon {
@@ -170,14 +162,10 @@ spacer[part=overflow-start-indicator], spacer[part=overflow-end-indicator] {
 }
 
 /* make opacity the same as forward button */
-#back-button[disabled="true"] {
-  fill-opacity: 0.4 !important;
-}
+#back-button[disabled="true"] { fill-opacity: 0.4 !important; }
 
 /* readjust margins for smaller size */
-#back-button {
-  margin-left: 4px !important;
-}
+#back-button { margin-left: 4px !important; }
 
 /* standardize padding on tab overflow buttons */
 #scrollbutton-up, #scrollbutton-down {
@@ -187,16 +175,14 @@ spacer[part=overflow-start-indicator], spacer[part=overflow-end-indicator] {
 }
 
 /* realign new tab, all tabs button */
-#new-tab-button, #alltabs-button {
-  margin-bottom: 4px !important;
-}
+#new-tab-button, #alltabs-button { margin-bottom: 4px !important; }
 
 /* Separator after tabs and new tab button */
 .tabbrowser-tab::after, .tabbrowser-tab::before {
   border: 0.5px solid var(--tabs-border-color) !important;
 }
 
-/* custom icon */
+/* custom icon for sidebar button */
 #sidebar-button {
   list-style-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 1H13C13.795 1.00211 14.5568 1.31886 15.119 1.88101C15.6811 2.44316 15.9979 3.205 16 4V12C15.9976 12.7949 15.6808 13.5566 15.1187 14.1187C14.5566 14.6808 13.7949 14.9976 13 15H3C2.20476 14.9987 1.44246 14.6822 0.88014 14.1199C0.317817 13.5575 0.0013221 12.7952 0 12L0 4C0.00342106 3.2054 0.32059 2.44433 0.882459 1.88246C1.44433 1.32059 2.2054 1.00342 3 1ZM14 12V4C14 3.73478 13.8946 3.48043 13.7071 3.29289C13.5196 3.10536 13.2652 3 13 3H6.13237V13H13C13.2652 13 13.5196 12.8946 13.7071 12.7071C13.8946 12.5196 14 12.2652 14 12ZM2 12C2 12.2652 2.10536 12.5196 2.29289 12.7071C2.48043 12.8946 2.73478 13 3 13H2V7.94676V3H3C2.73478 3 2.48043 3.10536 2.29289 3.29289C2.10536 3.48043 2 3.73478 2 4V12Z" fill="context-fill" fill-opacity="context-fill-opacity"/></svg>') !important;
 }
