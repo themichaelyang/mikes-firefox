@@ -17,7 +17,7 @@ all under 200 lines of code, with comments!
 ## installation
 
 1. open firefox
-2. click on the three lines menu button (≡) to the left of the navbar
+2. click on the three lines menu button (≡) to the right of the navbar
 3. click on "Help" at the bottom of the menu
 4. click on "Troubleshooting Information"
 5. find "Profile Folder" in the table and click "Show in Finder"
