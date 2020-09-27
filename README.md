@@ -1,6 +1,6 @@
-# mike's firefox userChrome.css
+# mike's firefox 🦊
 
-makes firefox a little bit nicer, visually. 
+a [userChrome.css](https://www.userchrome.org/) theme that makes firefox a little bit nicer, visually. 
 
 ![screenshot](screenshot.png)
 
@@ -12,7 +12,7 @@ a bunch of lightweight tweaks, including:
 - custom sidebar icon
 - color and spacing improvements
 
-all under 200 lines of code, with comments!
+all under 200 lines of code, with comments! 👯‍♀️
 
 ## installation
 
@@ -29,9 +29,10 @@ all under 200 lines of code, with comments!
 11. set your theme, under "Customize" in the three lines menu (≡), to either "Default" for a dark theme, or to "Light" for the light theme (recommended)
 12. enjoy `:~)`
 
-you could also `git clone` and rename the repo to `chrome/` if you'd like to pull updates and bugfixes periodically
+you could also `git clone` and rename/symlink the repo to `chrome/` if you'd like to pull updates and bugfixes periodically
 
 ## inspiration
+
 - [Modern Firefox (u/LordEverin)](https://www.reddit.com/r/FirefoxCSS/comments/bm77hx/modern_firefox/)
 - [MaterialFox (muckSponge)](https://github.com/muckSponge/MaterialFox)
 - Learn more about userChrome.css [here (unofficial)](https://www.userchrome.org/)
