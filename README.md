@@ -21,7 +21,7 @@ all under 200 lines of code, with comments! 👯‍♀️
 3. click on "Help" at the bottom of the menu
 4. click on "Troubleshooting Information"
 5. find "Profile Folder" in the table and click "Show in Finder"
-6. make a `chrome` folder in your profile folder if it doesn't already exist
+6. make a `chrome` folder in your profile folder (the folder that looks like `###.default-###`) if it doesn't already exist
 7. download (or `git clone`) this repo and put `userChrome.css` into `chrome/`
 8. enter `about:config` in the address bar, and find `userprof`
 9. change `toolkit.legacyUserProfileCustomizations.stylesheets` from `false` to `true`
