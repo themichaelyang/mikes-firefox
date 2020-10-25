@@ -82,9 +82,22 @@ tab .tab-stack::before {
   padding: 0px !important;
 }
 
+#scrollbutton-up {
+  margin-right: -3px !important;
+}
+
+/* Reduce opacity for disabled scroll buttons */
+#scrollbutton-up[disabled], #scrollbutton-down[disabled] {
+  opacity: 0.2 !important;
+}
+
+spacer[part="overflow-start-indicator"], spacer[part="overflow-end-indicator"] {
+  border: none !important;
+}
+
 /* And for first tab in tab scrollbox */
-tab .tab-stack {
-  margin-left: 5px !important;
+tab:not(pinned) .tab-stack {
+  margin-left: 6px !important;
 }
 
 /* overflow shadows on overflow tab scroller */
@@ -171,11 +184,9 @@ spacer[part=overflow-start-indicator], spacer[part=overflow-end-indicator] {
 /* readjust margins for smaller size */
 #back-button { margin-left: 4px !important; }
 
-/* standardize padding on tab overflow buttons */
+/* standardize radius on tab overflow buttons */
 #scrollbutton-up, #scrollbutton-down {
   border-radius: var(--toolbarbutton-border-radius) !important;
-  margin-right: 4px !important;
-  margin-bottom: 4px !important;
 }
 
 /* realign new tab, all tabs button */
